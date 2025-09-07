@@ -12,7 +12,7 @@ A Python application that automatically detects and anonymizes faces in images, 
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.9+
 - OpenCV
 - MediaPipe
 - NumPy
@@ -27,7 +27,7 @@ cd face_anonymizer
 
 2. Install required packages:
 ```bash
-pip install opencv-python mediapipe numpy
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -56,11 +56,11 @@ python main.py --mode webcam
 
 ### Before and After Processing
 
-#### Original Video
-![Original Video](./data/human_present.mp4)
+#### Original Image
+![Original Image](./data/human_face.jpg)
 
 #### Anonymized Result
-![Anonymized Video](./output/output.mp4)
+![Anonymized Image](./output/output.jpg)
 
 The application successfully detects faces and applies Gaussian blur to anonymize them while preserving the rest of the image quality.
 
@@ -79,7 +79,6 @@ face_anonymizer/
 ├── blaze_face_short_range.tflite    # MediaPipe face detection model
 ├── data/                            # Input images and videos
 │   ├── human_face.jpg
-│   ├── human_face_2.jpg
 │   └── human_present.mp4
 ├── output/                          # Processed output files
 │   ├── output.jpg
