@@ -106,5 +106,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Acknowledgments
 
-- [MediaPipe](https://mediapipe.dev/) for the face detection model
+- [MediaPipe](https://ai.google.dev/edge/mediapipe/solutions/vision/face_detector/python/) for the face detection model
 - [OpenCV](https://opencv.org/) for image processing capabilities

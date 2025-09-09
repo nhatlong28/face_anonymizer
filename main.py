@@ -12,15 +12,14 @@ VisionRunningMode = mp.tasks.vision.RunningMode
 def processing_img(img, detector):
     mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=img)
     face_detector_result = detector.detect(mp_image)
-
-    #if face_detector_result.detections:
-    for face in face_detector_result.detections:
-        bbox = face.bounding_box
-        x, y, w, h = bbox.origin_x, bbox.origin_y, bbox.width, bbox.height
-        # Anonymize face in the bounding box
-        face_region = img[y:y + h, x:x + w]
-        face_region = cv2.GaussianBlur(face_region, (51, 51), 20)
-        img[y:y + h, x:x + w] = face_region
+    if face_detector_result.detections:
+        for face in face_detector_result.detections:
+            bbox = face.bounding_box
+            x, y, w, h = bbox.origin_x, bbox.origin_y, bbox.width, bbox.height
+            # Anonymize face in the bounding box
+            face_region = img[y:y + h, x:x + w]
+            face_region = cv2.GaussianBlur(face_region, (51, 51), 20)
+            img[y:y + h, x:x + w] = face_region
     return img
 
 args = argparse.ArgumentParser()
